@@ -3,6 +3,23 @@
 @section('conteudo')
     <div class="container mt-5">
 
+        <h3>Lista de documentos cadastrados</h3>
+
+        @if (!empty($mensagem))
+            <div class="alert alert-success">
+                <p>{{$mensagem}}</p>
+            </div>
+        @endif
+    </div>
+
+    <div class="container mt-5">
+
+        @if (!empty($mensagem))
+            <div class="alert alert-success">
+                <p>{{$mensagem}}</p>
+            </div>
+        @endif
+
         <table class="table table-bordered">
             <thead class="bg-dark">
               <tr class="text-white">
@@ -28,28 +45,24 @@
                             
                         </td>
                         <td>
-                            <div class="btn-group me-2">
-                                
-                                <div>
-                                    <a href="/documentos/{{$documento->id}}/editar" class="mr-2">
-                                        <button class="btn btn-primary">Editar</button>
-                                    </a>
-                                </div> 
 
-                                <div>
-                                    <form action="/documentos/{{$documento->id}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger">Excluir</button>
-                                    </form>
-                                </div>
-
+                            <div class="btn-group mr-2">                                                               
+                                <a href="/documentos/{{$documento->id}}/editar" class="mr-2">
+                                    <button class="btn btn-primary mr-2">Editar</button>
+                                </a>
+                            </div>
+                            <div class="btn-group"> 
+                                <form action="/documentos/{{$documento->id}}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir ?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">Excluir</button>
+                                </form>
                             </div>               
                         </td>                       
                     </tr>
                 @endforeach    
             </tbody>
-          </table>
+        </table>
 
     </div>
     <div class="container">

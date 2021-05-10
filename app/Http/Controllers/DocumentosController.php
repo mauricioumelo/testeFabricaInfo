@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DocumentosModel;
 use App\Models\tipoDocumentosModel;
+use App\Http\Requests\DocumentosFormRequest;
 
 
 class DocumentosController extends Controller
 {
-    public function index (){
+    public function index (Request $request){
         $documentos = DocumentosModel::all();
         $tipos = tipoDocumentosModel::all();
+        $mensagem = $request->session()->get('mensagem');
         return view('documentos.index', [
             'documentos' => $documentos,
             'tipos' => $tipos,
+            'mensagem' => $mensagem,
         ]);
     }
 
@@ -24,7 +27,7 @@ class DocumentosController extends Controller
             'tipos' => $tipos,
         ]);
     }
-    public function store (Request $request) {
+    public function store (DocumentosFormRequest $request) {
          $titulo = $request->titulo;
          $nome_arquivo = $request->nome_arquivo;
          $id_tipo = $request->tipo;
@@ -33,8 +36,9 @@ class DocumentosController extends Controller
             'nome_arquivo'=> $nome_arquivo,
             'id_tipo'=> $id_tipo,
         ]);
+        
+        $request->session()->flash('mensagem',"Documento criado com sucesso");
 
-         echo "Documento de id: {$documento->id}, nome: {$documento->titulo}, de arquivo: {$documento->nome_arquivo} criado com sucesso";
         return redirect('/documentos');
     }
 
