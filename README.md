@@ -3,6 +3,7 @@
 - No lugar da coluna tipo_id foi utilizado a coluna id_tipo
 
 - Foi utilizado o SGBD pgAdmin4 com a seguinte configuração:
+
     Arquivo .env :
 
         DB_CONNECTION=pgsql
