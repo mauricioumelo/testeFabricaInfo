@@ -34,9 +34,10 @@
 
     Para rodar as questões de 1 a 4 sera nescessario:
     
-    Ter o php na versao 7.4.16^ instalado em sua maquina, entrar na pasta questoes_teste e rodar o comando'php arquivo.php'
+    Ter o php na `versao 7.4.16^` instalado em sua maquina, entrar na pasta questoes_teste e rodar o comando'php arquivo.php'
 
     Exemplo:
     
     `cd teste_leonardo\questoes_teste`
+
     `php questao1.php`
