@@ -1,5 +1,16 @@
 ## Avisos sobre o Crud
+
+- No lugar da coluna tipo_id foi utilizado a coluna id_tipo
+
 - Foi utilizado o SGBD pgAdmin4 com a seguinte configuração:
+    Arquivo .env :
+
+        DB_CONNECTION=pgsql
+        DB_HOST=localhost
+        DB_PORT=5432
+        DB_DATABASE=postgres
+        DB_USERNAME=postgres
+        DB_PASSWORD=1234
 
     Arquivo database.php :
 
@@ -17,15 +28,3 @@
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
-    Arquivo .env :
-
-        DB_CONNECTION=pgsql
-        DB_HOST=localhost
-        DB_PORT=5432
-        DB_DATABASE=postgres
-        DB_USERNAME=postgres
-        DB_PASSWORD=1234
-
-
-- No lugar da coluna tipo_id foi utilizado a coluna id_tipo
