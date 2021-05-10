@@ -2,7 +2,7 @@
 - Foi utilizado o SGBD pgAdmin4 com a seguinte configuração:
 
     Arquivo database.php :
-    
+
        'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
@@ -18,7 +18,7 @@
             'sslmode' => 'prefer',
         ],
 
-        Arquivo .env :
+    Arquivo .env :
 
         DB_CONNECTION=pgsql
         DB_HOST=localhost
